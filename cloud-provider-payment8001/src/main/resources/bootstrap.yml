@@ -1,0 +1,16 @@
+# 该文件每个元素都必不可少
+spring:
+  application:
+    name: cloud-payment-service
+    ####Spring Cloud Consul for Service Discovery
+  cloud:
+    consul:
+      host: 43.137.8.130
+      port: 8500
+      discovery:
+        service-name: ${spring.application.name}
+      config:
+        profile-separator: '-' # default value is ","，we update '-'
+        format: YAML
+        watch:
+          wait-time: 1
