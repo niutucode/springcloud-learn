@@ -21,4 +21,10 @@ public class ResultData<T> {
                 .setMessage(ReturnCodeEnum.RC200.getMessage())
                 .setData(data);
     }
+
+    public static <T> ResultData<T> fail(String code, String message) {
+        return new ResultData<T>()
+                .setCode(code)
+                .setMessage(message);
+    }
 }
