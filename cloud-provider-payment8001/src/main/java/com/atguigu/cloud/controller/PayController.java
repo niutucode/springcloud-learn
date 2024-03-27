@@ -66,6 +66,11 @@ public class PayController {
 
     @GetMapping(value = "/pay/get/info")
     public String getInfo(@Value("${info}") String info, @Value("${server.port}") String port) {
+        try {
+            Thread.sleep(30 * 1000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
         return info + "  " + port;
     }
 }

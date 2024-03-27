@@ -19,7 +19,7 @@ public class OrderController {
     }
 
     @GetMapping(value = "/feign/pay/get/{id}")
-    public ResultData<String> getPayInfo(@PathVariable("id") Integer id) {
+    public ResultData<PayDTO> getPayInfo(@PathVariable("id") Integer id) {
         return payFeignApi.getPayInfo(id);
     }
 

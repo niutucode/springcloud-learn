@@ -15,7 +15,7 @@ public interface PayFeignApi {
     ResultData<String> addPay(@RequestBody PayDTO payDTO);
 
     @GetMapping(value = "/pay/get/{id}")
-    ResultData<String> getPayInfo(@PathVariable("id") Integer id);
+    ResultData<PayDTO> getPayInfo(@PathVariable("id") Integer id);
 
     @GetMapping(value = "/pay/get/info")
     String mylb();

@@ -12,3 +12,30 @@ spring:
         service-name: ${spring.application.name}
         heartbeat:
           enabled: true
+    openfeign:
+      client:
+        config:
+          cloud-payment-service:
+            connect-timeout: 3000
+            read-timeout: 3000
+      httpclient:
+        hc5:
+          enabled: true
+      compression:
+        request:
+          enabled: true
+          min-request-size: 2048
+          mime-types: text/xml,application/xml,application/json
+        response:
+          enabled: true
+#          default:
+#            connect-timeout: 3000
+#            read-timeout: 3000
+# 如果两个都配置了超时时间，那么使用具体的微服务的
+logging:
+  level:
+    com:
+      atguigu:
+        cloud:
+          apis:
+            PayFeignApi: debug
