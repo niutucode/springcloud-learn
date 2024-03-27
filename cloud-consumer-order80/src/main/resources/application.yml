@@ -11,6 +11,7 @@ spring:
       port: 8500
       discovery:
         service-name: ${spring.application.name}
+        prefer-ip-address: true #优先使用服务ip进行注册
         heartbeat:
           enabled: true
         #hostname: 127.0.0.1  # 可选配置项，指定服务注册时使用的 IP 地址，不配置时默认使用本机 IP 地址
