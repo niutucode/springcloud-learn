@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
-@FeignClient(name = "cloud-payment-service")
+@FeignClient(name = "cloud-gateway")
 public interface PayFeignApi {
 
     @PostMapping(value = "/pay/add")
@@ -37,4 +37,21 @@ public interface PayFeignApi {
      */
     @GetMapping(value = "/pay/micrometer/{id}")
     String myMicrometer(@PathVariable("id") Integer id);
+
+    /**
+     * GateWay进行网关测试案例01
+     *
+     * @param id
+     * @return
+     */
+    @GetMapping(value = "/pay/gateway/get/{id}")
+    ResultData<PayDTO> getById(@PathVariable("id") Integer id);
+
+    /**
+     * GateWay进行网关测试案例02
+     *
+     * @return
+     */
+    @GetMapping(value = "/pay/gateway/info")
+    ResultData<String> getGatewayInfo();
 }
