@@ -19,4 +19,22 @@ public interface PayFeignApi {
 
     @GetMapping(value = "/pay/get/info")
     String mylb();
+
+    @GetMapping(value = "/pay/circuit/{id}")
+    String payCircuit(@PathVariable("id") Integer id);
+
+    @GetMapping(value = "/pay/bulkhead/{id}")
+    String payBulkhead(@PathVariable("id") Integer id);
+
+    @GetMapping(value = "/pay/rate_limit/{id}")
+    String rateLimit(@PathVariable("id") Integer id);
+
+    /**
+     * Micrometer(Sleuth)进行链路监控的例子
+     *
+     * @param id
+     * @return
+     */
+    @GetMapping(value = "/pay/micrometer/{id}")
+    String myMicrometer(@PathVariable("id") Integer id);
 }
